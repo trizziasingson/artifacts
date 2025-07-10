@@ -1,130 +1,489 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Global Health Insights - Trizzia Ellaine</title>
+    <title>Global Health Analysis - Trizzia Ellaine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
+        :root {
+            --primary: #f06292;
+            --primary-light: #fce4ec;
+            --primary-dark: #ad1457;
+            --accent: #fff3f7;
+            --bg: #fdf6fa;
+            --text: #37213d;
+            --card: #fff;
+            --border: #f8bbd0;
+            --shadow: 0 4px 24px rgba(240, 98, 146, 0.08);
+        }
+        html, body {
             margin: 0;
-            background: #f6f7fb;
-            color: #18202a;
+            padding: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
         }
-        .container {
-            max-width: 900px;
-            background: #fff;
-            margin: 36px auto;
-            padding: 38px;
-            border-radius: 14px;
-            box-shadow: 0 3px 16px rgba(0,0,0,0.08);
+        header {
+            background: linear-gradient(100deg, #fbb1ce 0%, #ffe5ec 100%);
+            padding: 30px 0 10px 0;
+            border-bottom: 2.5px solid var(--primary);
+            box-shadow: var(--shadow);
         }
-        .nav {
-            background: #e7eaf6;
-            padding: 12px 0;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 32px;
+        .nav-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .nav a {
-            color: #0e6ba8;
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a, .back-btn {
             text-decoration: none;
-            margin: 0 18px;
-            font-weight: 500;
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1.02em;
+            padding: 8px 18px;
+            border-radius: 8px;
+            background: var(--accent);
+            border: 1px solid var(--primary-light);
+            transition: background 0.18s;
         }
-        .nav a:hover {
+        .nav-links a:hover, .back-btn:hover {
+            background: var(--primary-light);
+        }
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 36px 24px 24px 24px;
+        }
+        .hero-img {
+            flex: 1 1 340px;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-img img {
+            width: 240px;
+            border-radius: 18px;
+            box-shadow: 0 6px 36px #f0629236;
+            border: 3px solid var(--primary-light);
+            object-fit: cover;
+        }
+        .hero-content {
+            flex: 2 1 400px;
+        }
+        .hero-title {
+            font-size: 2.4em;
+            color: var(--primary-dark);
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+        }
+        .hero-desc {
+            color: #8c4a6e;
+            font-size: 1.1em;
+            margin-bottom: 18px;
+        }
+        .hero-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            font-size: 0.93em;
+            padding: 5px 13px;
+            border-radius: 18px;
+            border: 1.5px solid var(--border);
+            margin-bottom: 6px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 16px 36px 16px;
+        }
+        .section-title {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 44px 0 14px 0;
+            letter-spacing: 0.01em;
+            display: flex;
+            align-items: center;
+        }
+        .flex-row {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .card, .stat-card {
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1.6px solid var(--border);
+            padding: 26px 22px;
+            margin-bottom: 22px;
+            flex: 1 1 320px;
+        }
+        .card ul {
+            margin-top: 6px;
+            margin-bottom: 0;
+        }
+        .stat-card {
+            text-align: center;
+            min-width: 200px;
+            max-width: 260px;
+            margin-top: 10px;
+        }
+        .stat-main {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 3px;
+        }
+        .stat-label {
+            color: #be5e82;
+            font-size: 1em;
+        }
+        .dataset-info {
+            background: var(--accent);
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+        }
+        .dataset-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+        }
+        .dataset-table td, .dataset-table th {
+            border: none;
+            padding: 6px 0;
+            color: #6b4063;
+            font-size: 1em;
+        }
+        .dataset-table th {
+            font-weight: 700;
+            text-align: left;
+            width: 120px;
+        }
+        .method-grid {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .method-card {
+            background: var(--accent);
+            border-radius: 13px;
+            padding: 18px 15px;
+            border: 1.2px solid #f8bbd0;
+            flex: 1 1 180px;
+            min-width: 190px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 12px #f0629222;
+        }
+        .method-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.07em;
+            margin-bottom: 6px;
+        }
+        .findings-grid {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+        .finding-card {
+            background: var(--primary-light);
+            border-radius: 12px;
+            border: 1.2px solid #f8bbd0;
+            padding: 17px 13px 14px 13px;
+            flex: 1 1 190px;
+            min-width: 190px;
+            margin-bottom: 18px;
+        }
+        .finding-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1em;
+            margin-bottom: 5px;
+        }
+        .project-report {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+        .report-img {
+            background: #faf4f8;
+            border-radius: 14px;
+            padding: 8px;
+            border: 1.5px solid #f8bbd0;
+            max-width: 370px;
+            box-shadow: 0 3px 18px #f0629220;
+        }
+        .report-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 10px;
+        }
+        .download-btn, .view-btn {
+            display: inline-block;
+            padding: 11px 26px;
+            font-weight: 700;
+            border-radius: 22px;
+            border: none;
+            color: var(--card);
+            background: var(--primary);
+            margin-bottom: 2px;
+            font-size: 1em;
+            box-shadow: 0 2px 12px #f0629225;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.13s;
+        }
+        .view-btn {
+            background: var(--primary-dark);
+        }
+        .download-btn:hover, .view-btn:hover {
+            background: #e75480;
+        }
+        .resource-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .resource-card {
+            background: var(--accent);
+            border-radius: 13px;
+            padding: 18px 16px;
+            border: 1.2px solid #f8bbd0;
+            flex: 1 1 260px;
+            min-width: 160px;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+        }
+        .resource-card a {
+            color: var(--primary-dark);
+            font-weight: 600;
             text-decoration: underline;
-        }
-        h1, h2 {
-            color: #0e6ba8;
-        }
-        .section {
-            margin-bottom: 34px;
-        }
-        img, iframe {
-            max-width: 100%;
-            border-radius: 6px;
-            display: block;
-            margin: 18px 0;
+            word-break: break-word;
         }
         .footer {
             text-align: center;
-            color: #8d99ae;
+            color: #be5e82;
+            background: #fff2fa;
             font-size: 14px;
-            margin-top: 44px;
-            margin-bottom: 10px;
+            margin-top: 50px;
+            padding: 22px 0 14px 0;
+            border-top: 1.7px solid #fbb1ce;
         }
-        ul, ol {
-            margin-left: 1.7em;
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; }
+            .project-report { flex-direction: column; align-items: stretch;}
         }
         @media (max-width: 700px) {
-            .container {
-                padding: 12px;
-            }
+            .nav-top, .hero, main { padding: 0 8px; }
+            .stat-card { max-width: 100%; }
+            .findings-grid, .method-grid, .flex-row, .resource-links { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <nav class="nav">
-        <a href="https://yourusername.github.io/">Home</a>
-        <a href="../index.html">Portfolio</a>
-    </nav>
-    <h1>Global Health Insights</h1>
-    <p><em>by Trizzia Ellaine</em></p>
+    <header>
+        <div class="nav-top">
+            <div>
+                <b style="font-size:1.23em; color:#ad1457;">Trizzia Ellaine</b>
+                <span style="margin-left:8px;color:#c671a6;">| Portfolio Project</span>
+            </div>
+            <div class="nav-links">
+                <a href="#">Portfolio</a>
+                <a href="#" class="back-btn">Back to Portfolio</a>
+            </div>
+        </div>
+    </header>
 
-    <div class="section">
-        <h2>Project Introduction</h2>
-        <p>
-            Welcome! This project explores global health trends by analyzing a variety of datasets related to life expectancy, access to healthcare, and disease burden. My goal is to transform complex data into meaningful insights that can inspire positive change and inform future strategies.
-        </p>
+    <div class="hero">
+        <div class="hero-img">
+            <img src="pexels-tara-winstead-7723605.jpg" alt="Pink Health Science Cover">
+        </div>
+        <div class="hero-content">
+            <div class="hero-title">Global Health Analysis</div>
+            <div class="hero-desc">
+                Time Series & Logistic Regression Analysis of Global Health, Environmental, and Socioeconomic Data (2012–2021).<br>
+                <span style="font-size:0.95em; color:#be5e82;">
+                    <b>Project by:</b> Trizzia Ellaine &nbsp;|&nbsp; <b>Timeline:</b> 2024
+                </span>
+            </div>
+            <div class="hero-tags">
+                <div class="tag">Academic Project</div>
+                <div class="tag">Langara College</div>
+                <div class="tag">Python, R, Statistics</div>
+                <div class="tag">Data Analytics</div>
+            </div>
+        </div>
     </div>
 
-    <div class="section">
-        <h2>Project Goals</h2>
-        <ul>
-            <li>Visualize and compare health trends across regions using data analytics</li>
-            <li>Identify key drivers of health inequalities around the world</li>
-            <li>Offer actionable, data-driven recommendations for stakeholders</li>
-        </ul>
-    </div>
+    <main>
+        <div class="section-title">Project Overview</div>
+        <div class="flex-row">
+            <div class="card">
+                <p>
+                    This comprehensive analysis examines global health patterns and their relationships with environmental and socioeconomic factors, covering a 9-year period (2012–2021). Through advanced statistical techniques, I explored temporal trends and built predictive models to uncover impactful trends in global health outcomes.
+                </p>
+                <ul>
+                    <li>Analyze temporal trends in global health indicators from 2012–2021</li>
+                    <li>Identify regional disparities and environmental influences on health</li>
+                    <li>Apply time series and logistic regression for predictive modeling</li>
+                    <li>Present compelling, data-driven insights for policy and action</li>
+                </ul>
+            </div>
+            <div class="stat-card">
+                <div class="stat-main">9</div>
+                <div class="stat-label">Years of Data</div>
+                <div class="stat-main">100+</div>
+                <div class="stat-label">Countries Analyzed</div>
+                <div class="stat-main">15+</div>
+                <div class="stat-label">Key Health Indicators</div>
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Data Sources & Methods</h2>
-        <p>
-            The data used for this analysis was sourced from the World Health Organization, World Bank, and <a href="https://ourworldindata.org/" target="_blank">Our World in Data</a>.<br><br>
-            I applied Python (with pandas and matplotlib) and Excel to clean, analyze, and visualize the data. My analysis included time series trends, correlation studies, and mapping key indicators.
-        </p>
-        <ul>
-            <li>Life expectancy patterns from 2000–2022</li>
-            <li>Access to healthcare and its variation by country</li>
-            <li>Changes in infant and maternal mortality rates</li>
-        </ul>
-    </div>
+        <div class="section-title">Dataset Information</div>
+        <div class="dataset-info">
+            <b>Global Health and Development Dataset</b><br>
+            <table class="dataset-table">
+                <tr>
+                    <th>Source:</th>
+                    <td><a href="https://www.kaggle.com/datasets/kaggle/global-health-and-development-2012-2021" target="_blank">Kaggle - Global Health and Development (2012–2021)</a></td>
+                </tr>
+                <tr>
+                    <th>Time Period:</th>
+                    <td>2012–2021 (9 years)</td>
+                </tr>
+                <tr>
+                    <th>Coverage:</th>
+                    <td>Global (100+ countries)</td>
+                </tr>
+                <tr>
+                    <th>Categories:</th>
+                    <td>Health Indicators, Environmental, Socioeconomic Variables</td>
+                </tr>
+            </table>
+        </div>
 
-    <div class="section">
-        <h2>Key Insights</h2>
-        <ul>
-            <li>Global life expectancy has generally improved, but significant disparities remain between high- and low-income countries.</li>
-            <li>Regions with limited access to essential healthcare continue to face challenges in reducing mortality rates.</li>
-            <li>Investment in health systems strongly correlates with better overall health outcomes.</li>
-        </ul>
-        <img src="assets/global_health_viz.png" alt="Global Health Visualization (Replace with your chart)">
-        <!-- If you have a chart, put it in an 'assets' folder and use its filename above -->
-    </div>
+        <div class="section-title">Methodology & Process</div>
+        <div class="method-grid">
+            <div class="method-card">
+                <div class="method-title">Data Wrangling</div>
+                <ul>
+                    <li>Data cleaning and validation</li>
+                    <li>Handling missing data and outliers</li>
+                    <li>Standardization of country names and variables</li>
+                    <li>Temporal alignment across indicators</li>
+                </ul>
+            </div>
+            <div class="method-card">
+                <div class="method-title">Feature Engineering</div>
+                <ul>
+                    <li>Creation of derived health indices</li>
+                    <li>Regional aggregation and grouping</li>
+                    <li>Trend feature extraction (seasonality, trend)</li>
+                </ul>
+            </div>
+            <div class="method-card">
+                <div class="method-title">Time Series Analysis</div>
+                <ul>
+                    <li>Trend decomposition and visualization</li>
+                    <li>Autocorrelation and forecasting</li>
+                    <li>Seasonality and anomaly detection</li>
+                </ul>
+            </div>
+            <div class="method-card">
+                <div class="method-title">Logistic Regression</div>
+                <ul>
+                    <li>Binary outcome modeling</li>
+                    <li>Predictor selection & interpretation</li>
+                    <li>Odds ratio & model validation</li>
+                </ul>
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Reflections & Recommendations</h2>
-        <p>
-            This project demonstrates the power of analytics to uncover hidden patterns and drive meaningful solutions. Bridging the gap in health outcomes will require targeted policies, increased investment, and international collaboration. For further detail, please download the full report below.<br><br>
-            <a href="report.pdf">Download Full Report (PDF)</a>
-        </p>
-    </div>
+        <div class="section-title">Key Findings & Insights</div>
+        <div class="findings-grid">
+            <div class="finding-card">
+                <div class="finding-title">Regional Health Disparities</div>
+                <div>
+                    Significant differences in health outcomes across geographic regions, especially between Sub-Saharan Africa, South Asia, and developed countries.
+                </div>
+            </div>
+            <div class="finding-card">
+                <div class="finding-title">Temporal Trends</div>
+                <div>
+                    Steady global improvement in health indicators, with rapid gains in maternal and child health in developing regions over the last decade.
+                </div>
+            </div>
+            <div class="finding-card">
+                <div class="finding-title">Environmental Correlations</div>
+                <div>
+                    Strong associations found between environmental factors (air, water, access) and population health, with urban-rural contrasts.
+                </div>
+            </div>
+            <div class="finding-card">
+                <div class="finding-title">Socioeconomic Impact</div>
+                <div>
+                    GDP per capita and education were identified as key predictors of positive health outcomes, with threshold effects observed.
+                </div>
+            </div>
+        </div>
 
+        <div class="section-title">Project Report & Documentation</div>
+        <div class="project-report">
+            <img class="report-img" src="pexels-junior-teixeira-1064069-2047905.jpg" alt="Report Preview">
+            <div class="report-actions">
+                <a href="Group%201%20-%20Global%20Health.pdf" class="download-btn" download>Download Full Report (PDF)</a>
+                <a href="Group%201%20-%20Global%20Health.pdf" class="view-btn" target="_blank">View in New Tab</a>
+            </div>
+        </div>
+
+        <div class="section-title">Analytics Visualization</div>
+        <div class="project-report">
+            <img class="report-img" src="analytics.png" alt="Analytics Visualization">
+        </div>
+
+        <div class="section-title">External Resources & Links</div>
+        <div class="resource-links">
+            <div class="resource-card">
+                <b>Dataset Source:</b> <br>
+                <a href="https://www.kaggle.com/datasets/kaggle/global-health-and-development-2012-2021" target="_blank">
+                    Global Health and Development Dataset on Kaggle
+                </a>
+            </div>
+            <div class="resource-card">
+                <b>GitHub Repository:</b> <br>
+                <a href="https://github.com/yourusername/global-health-analysis" target="_blank">
+                    Project code and analysis scripts for Global Health Analysis
+                </a>
+            </div>
+        </div>
+    </main>
     <div class="footer">
-        &copy; 2024 Trizzia Ellaine | <a href="mailto:your@email.com">Contact</a>
+        &copy; 2024 Trizzia Ellaine. All rights reserved.
     </div>
-</div>
 </body>
 </html>
