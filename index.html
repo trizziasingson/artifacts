@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <title>Global Health Data Science Portfolio | Trizzia Ellaine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Google Fonts for elegant look -->
+    <!-- Google Fonts for modern feminine look -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --pink: #ff7eb9;
+            --pink-light: #ffe7f2;
             --pink-dark: #de599b;
             --white: #fff;
             --grey: #f6f6fa;
-            --text: #212127;
-            --black: #141414;
-            --shadow: 0 4px 16px rgba(255,126,185,0.12);
-            --radius: 18px;
-            --section-gap: 44px;
+            --text: #22202f;
+            --subheading: #cc4180;
+            --black: #18101a;
+            --shadow: 0 4px 16px rgba(255,126,185,0.10);
+            --radius: 20px;
+            --section-gap: 50px;
         }
         body {
             background: var(--grey);
@@ -26,9 +28,9 @@
             padding: 0;
         }
         header {
-            background: linear-gradient(120deg, var(--pink) 0%, #fff 100%);
+            background: linear-gradient(110deg, var(--pink) 20%, var(--pink-light) 90%);
             color: var(--black);
-            padding: 44px 0 28px 0;
+            padding: 50px 0 32px 0;
             box-shadow: var(--shadow);
             text-align: center;
         }
@@ -40,65 +42,82 @@
             letter-spacing: 0.05em;
         }
         header p {
-            font-size: 1.2rem;
+            font-size: 1.18rem;
             color: var(--black);
-            margin: 0;
+            margin: 0 0 8px 0;
         }
         .tags {
-            margin-top: 12px;
+            margin-top: 13px;
         }
         .tag {
             background: var(--white);
             color: var(--pink-dark);
             border-radius: 22px;
             display: inline-block;
-            font-size: 0.95rem;
-            margin: 0 6px 0 0;
-            padding: 6px 18px;
+            font-size: 0.97rem;
+            margin: 0 7px 0 0;
+            padding: 7px 19px;
             border: 1.2px solid var(--pink-dark);
             font-weight: 600;
         }
         .main-container {
-            max-width: 1020px;
+            max-width: 1050px;
             margin: auto;
             background: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            margin-top: -36px;
+            margin-top: -38px;
             margin-bottom: var(--section-gap);
-            padding: 38px 34px 38px 34px;
+            padding: 40px 36px 44px 36px;
         }
         section {
             margin-bottom: var(--section-gap);
         }
         .section-header {
-            color: var(--pink-dark);
-            font-size: 1.6rem;
+            color: var(--subheading);
             font-family: 'Montserrat', sans-serif;
-            margin-bottom: 12px;
+            font-size: 2.1rem;
             font-weight: 700;
-            border-bottom: 2.5px solid var(--pink);
-            display: inline-block;
+            letter-spacing: 0.02em;
+            margin-bottom: 16px;
             padding-bottom: 2px;
+            line-height: 1.15;
+            background: linear-gradient(90deg, var(--pink-light) 50%, transparent 100%);
+            display: inline-block;
+            border-radius: 7px;
         }
         .two-columns {
             display: flex;
-            gap: 32px;
+            gap: 40px;
             flex-wrap: wrap;
         }
         .col {
-            flex: 1 1 300px;
+            flex: 1 1 340px;
             min-width: 260px;
         }
         .key-points {
-            background: var(--grey);
+            background: var(--pink-light);
             border-radius: var(--radius);
-            box-shadow: 0 2px 8px rgba(255,126,185,0.09);
-            padding: 18px 20px;
+            box-shadow: 0 2px 8px rgba(255,126,185,0.08);
+            padding: 19px 23px;
             margin-bottom: 18px;
+            font-size: 1.09rem;
         }
-        .key-points ul {
-            padding-left: 22px;
+        .pretty-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .pretty-list li {
+            margin-bottom: 9px;
+            padding-left: 18px;
+            position: relative;
+        }
+        .pretty-list li::before {
+            content: "✦";
+            color: var(--subheading);
+            position: absolute;
+            left: 0;
+            font-size: 1.05em;
         }
         .stats-panel {
             background: var(--pink);
@@ -106,33 +125,34 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
             text-align: center;
-            font-size: 1.1rem;
-            padding: 26px 12px;
-            min-width: 180px;
+            font-size: 1.12rem;
+            padding: 30px 16px;
+            min-width: 190px;
             margin-top: 14px;
         }
         .stats-panel span {
-            font-size: 2.1rem;
+            font-size: 2.2rem;
             font-weight: 700;
             display: block;
         }
         .dataset-table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--grey);
+            background: var(--pink-light);
             border-radius: var(--radius);
-            margin-top: 10px;
-            margin-bottom: 14px;
+            margin: 16px 0 14px 0;
+            font-size: 1.05rem;
         }
         .dataset-table th, .dataset-table td {
-            padding: 10px 15px;
-            border-bottom: 1px solid #eee;
+            padding: 11px 15px;
+            border-bottom: 1px solid #fff;
         }
         .dataset-table th {
             background: var(--pink);
             color: var(--white);
+            font-size: 1.08rem;
+            font-weight: 700;
             border-radius: var(--radius) var(--radius) 0 0;
-            font-size: 1.05rem;
         }
         .dataset-table tr:last-child td {
             border-bottom: none;
@@ -140,56 +160,68 @@
         .findings-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 14px;
+            gap: 20px;
+            margin-top: 17px;
         }
         .finding {
-            background: var(--grey);
-            border-left: 6px solid var(--pink-dark);
+            background: var(--pink-light);
+            border-left: 6px solid var(--subheading);
             border-radius: var(--radius);
-            flex: 1 1 250px;
-            min-width: 220px;
-            padding: 16px 16px 10px 16px;
+            flex: 1 1 260px;
+            min-width: 230px;
+            padding: 18px 17px 11px 17px;
             box-shadow: 0 1px 6px rgba(255,126,185,0.06);
+        }
+        .finding b {
+            color: var(--subheading);
         }
         .download-btn {
             background: var(--pink);
             color: var(--white);
-            padding: 14px 32px;
-            font-size: 1.09rem;
+            padding: 15px 36px;
+            font-size: 1.13rem;
             border: none;
-            border-radius: 28px;
+            border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            box-shadow: 0 2px 9px rgba(255,126,185,0.11);
-            margin: 18px 0 0 0;
+            box-shadow: 0 2px 9px rgba(255,126,185,0.10);
+            margin: 20px 0 0 0;
             cursor: pointer;
             transition: background 0.2s;
         }
         .download-btn:hover {
-            background: var(--pink-dark);
+            background: var(--subheading);
         }
         .resources-row {
             display: flex;
-            gap: 28px;
+            gap: 32px;
             margin-top: 18px;
         }
         .resource-card {
-            background: var(--grey);
+            background: var(--pink-light);
             border-radius: var(--radius);
             box-shadow: 0 2px 8px rgba(255,126,185,0.09);
             flex: 1 1 220px;
-            padding: 20px 16px 14px 18px;
-            font-size: 1rem;
+            padding: 20px 16px 16px 19px;
+            font-size: 1.04rem;
             text-align: left;
         }
         .resource-card a {
-            color: var(--pink-dark);
+            color: var(--subheading);
             font-weight: 600;
             text-decoration: none;
         }
         .resource-card a:hover {
             text-decoration: underline;
+        }
+        .pdf-embed {
+            width: 100%;
+            height: 480px;
+            border: 3px solid var(--pink);
+            border-radius: var(--radius);
+            margin: 0 0 14px 0;
+            background: #fff;
+            box-shadow: 0 1px 7px rgba(255,126,185,0.10);
         }
         .footer {
             background: var(--pink-dark);
@@ -200,12 +232,13 @@
             border-radius: 0 0 var(--radius) var(--radius);
             margin: 0 auto;
         }
-        @media (max-width: 800px) {
+        @media (max-width: 900px) {
             .main-container {
-                padding: 18px 4vw;
+                padding: 18px 2vw;
             }
             .two-columns, .resources-row, .findings-list {
                 flex-direction: column;
+                gap: 18px;
             }
             .stats-panel {
                 margin: 22px 0 0 0;
@@ -225,6 +258,7 @@
         </div>
     </header>
     <div class="main-container">
+
         <!-- Project Overview -->
         <section>
             <div class="section-header">Project Overview</div>
@@ -234,7 +268,7 @@
                         <p>
                             This project leverages modern data science techniques to analyze longitudinal global health indicators, environmental metrics, and socioeconomic factors from 2012 to 2021. My aim was to uncover patterns, quantify relationships, and generate actionable insights for evidence-based public health strategies.
                         </p>
-                        <ul>
+                        <ul class="pretty-list">
                             <li>Multi-year trend analysis of population health indicators</li>
                             <li>Quantification of environmental and economic impacts on health outcomes</li>
                             <li>Predictive modeling for at-risk region identification</li>
@@ -246,10 +280,10 @@
                     <div class="stats-panel">
                         <span>9</span>
                         Years of Data
-                        <hr style="border:0;border-top:1.5px solid #fff; width:60%;margin: 14px auto;">
+                        <hr style="border:0;border-top:1.5px solid #fff; width:62%;margin: 16px auto;">
                         <span>100+</span>
                         Countries Analyzed
-                        <hr style="border:0;border-top:1.5px solid #fff; width:60%;margin: 14px auto;">
+                        <hr style="border:0;border-top:1.5px solid #fff; width:62%;margin: 16px auto;">
                         <span>15+</span>
                         Health & Socioeconomic Indicators
                     </div>
@@ -283,7 +317,7 @@
                 </div>
                 <div class="col">
                     <b>My Data Workflow:</b>
-                    <ul>
+                    <ul class="pretty-list">
                         <li>Rigorous data cleaning & harmonization</li>
                         <li>Imputation for missing values</li>
                         <li>Feature engineering for advanced modeling</li>
@@ -299,14 +333,14 @@
             <div class="two-columns">
                 <div class="col">
                     <b>Data Science Pipeline</b>
-                    <ul>
+                    <ul class="pretty-list">
                         <li><b>Data Acquisition & Cleaning:</b> Sourced, validated, and standardized dataset</li>
                         <li><b>Exploratory Analysis:</b> Visualized trends, assessed distributions, identified outliers</li>
                         <li><b>Feature Engineering:</b> Constructed derived variables, regional aggregations</li>
                     </ul>
                 </div>
                 <div class="col">
-                    <ul>
+                    <ul class="pretty-list">
                         <li><b>Statistical Modeling:</b> Time series decomposition, logistic regression, correlation/multivariate analysis</li>
                         <li><b>Validation & Interpretation:</b> Model assessment, coefficient interpretation, and public health context</li>
                     </ul>
@@ -344,13 +378,11 @@
         <!-- Project Report & Documentation -->
         <section>
             <div class="section-header">Project Report & Documentation</div>
+            <iframe class="pdf-embed" src="Group%201%20-%20Global%20Health.pdf"></iframe>
             <div class="two-columns">
-                <div class="col">
-                    <img src="analytics.png" alt="Analytics preview" style="width:98%; border-radius:var(--radius); box-shadow: 0 2px 12px rgba(255,126,185,0.13);margin-bottom:12px;">
-                </div>
                 <div class="col" style="display: flex; flex-direction: column; justify-content: center;">
                     <a class="download-btn" href="Group%201%20-%20Global%20Health.pdf" download>Download Full Report (PDF)</a>
-                    <a class="download-btn" style="background:var(--white);color:var(--pink-dark);margin-top:10px;border:1.5px solid var(--pink);" href="Group%201%20-%20Global%20Health.pdf" target="_blank">View PDF in New Tab</a>
+                    <a class="download-btn" style="background:var(--white);color:var(--subheading);margin-top:11px;border:1.5px solid var(--pink);" href="Group%201%20-%20Global%20Health.pdf" target="_blank">View PDF in New Tab</a>
                 </div>
             </div>
         </section>
